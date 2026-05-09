@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+url      = "file:./dev.db"
+}
+
+model Salary {
+  id                  Int      @id @default(autoincrement())
+  company             String
+  role                String
+  level               String
+  location            String
+  experience_years    Int
+  base_salary         Int
+  bonus               Int      @default(0)
+  stock               Int      @default(0)
+  total_compensation  Int
+  confidence_score    Float    @default(0.8)
+  createdAt           DateTime @default(now())
+}
